@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Vida Sana para Niños</title>
+  <link rel="stylesheet" href="mainpage.css">
+</head>
+<body>
+  <header class="navbar">
+    <button onclick="cargarSeccion('mainpage')">Inicio</button>
+    <button onclick="cargarSeccion('alimentacion')">Alimentación</button>
+    <button onclick="cargarSeccion('ejercicio')">Ejercicio</button>
+    <button onclick="cargarSeccion('descanso')">Descanso</button>
+  </header>
+
+  <main id="contenido">
+
+    <header class="navbar">
+      <nav class="navbar-contenido">
+        <div class="inicio">
+          <a href="index.html">Inicio</a>
+        </div>
+        <ul class="menu">
+            <li><a href="alimentacion.html">Alimentación</a></li>
+            <li><a href="ejercicio.html">Ejercicio</a></li>
+            <li><a href="descanso.html">Descanso</a></li>
+          </ul>
+      </nav>
+    </header>
+  
+    <main>
+      <div class="contenedor-botones">
+        <div class="boton-contenedor green">
+          <a href="alimentacion.html" class="boton">Alimentación</a>
+          <img src="/img/ovejainicio.png" class="imagen-boton" alt="Imagen Alimentación">
+        </div>
+        
+        <div class="boton-contenedor red">
+          <a href="ejercicio.html" class="boton">Ejercicio</a>
+          <img src="/img/lagartoinicio.png" class="imagen-boton" alt="Imagen Ejercicio">
+        </div>
+  
+        <div class="boton-contenedor blue">
+          <a href="descanso.html" class="boton" id="DescansoBoton">Descanso</a>
+          <img src="/img/ositoinicio.png" class="imagen-boton" alt="Imagen Descanso">
+        </div>
+      </div>
+    </main>
+  </main>
+
+  <script src="secciones.js">
+  </script>
+</body>
+</html>

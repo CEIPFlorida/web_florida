@@ -1,0 +1,245 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    background-color: #000;
+    font-family: 'Comic Sans MS', sans-serif;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+  }
+  
+  .navbar {
+    width: 100%;
+    background-color: #111;
+    padding: 15px 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .inicio a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    transition: color 0.3s;
+  }
+  
+  
+  
+  .navbar ul {
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    gap: 40px;
+    padding-right: 10px; 
+   }
+  
+  .navbar a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 1px;
+  
+  }
+  .navbar a:hover {
+    color: #FFD700;
+  }
+  .navbar-contenido {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1700px;
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+  
+  .inicio a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    transition: color 0.3s;
+  }
+  
+  .inicio a:hover {
+    color: #d6cfa8;
+  }
+  
+  .navbar ul.menu {
+    list-style: none;
+    display: flex;
+    gap: 40px;
+  }
+  
+  .navbar ul.menu a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    transition: color 0.3s;
+  }
+  
+  .navbar ul.menu a:hover {
+    color: #FFD700;
+  }
+
+  main {
+    margin-top: 120px; 
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 60px; 
+  }
+  
+  .contenedor-botones {
+    display: flex;
+    gap: 160px; 
+    justify-content: center;
+    align-content: space-around;
+    margin-top: -150px;
+  }
+
+  .boton-contenedor {
+    text-align: center;
+    position: relative;
+    transform: translateZ(0);
+    position: relative; 
+    width: 250px; 
+    height: 150px; 
+  }
+  
+  .boton {
+    display: inline-block;
+    padding: 30px 50px;
+    font-size: 30px;
+    font-weight: bold;
+    color: white;
+    border-radius: 16px;
+    text-decoration: none;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    transform-origin: center;
+    will-change: transform;
+  }
+  
+  
+  .boton-contenedor:hover .boton {
+    transform: scale(1.15);
+  }
+  
+  .imagen-boton {
+    display: none;
+    width: 350px;
+    height: auto;
+    margin-top: 33px;
+    position: absolute;
+    top:55%;
+    left:50%;
+    opacity: 0;
+  }
+  
+  .boton-contenedor:hover .imagen-boton {
+    display: block;
+    animation: aparecerSuave 0.2s ease forwards;
+  }
+  
+  @keyframes aparecerSuave {
+    0% {
+      opacity: 0;
+      transform: translateX(-50%) scale(0.8);
+    }
+    30% {
+      opacity: 0.4;
+      transform: translateX(-50%) scale(0.9);
+    }
+    60% {
+      opacity: 0.8;
+      transform: translateX(-50%) scale(1);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(-50%) scale(1);
+    }
+  }
+  
+  .green .boton {
+    background-image: url("/img/alimentacionboton.png");
+    background-size: cover;
+    background-position: center;
+    border: 4px solid #2E7D32;
+  }
+  
+  .green .boton:hover {
+    background-image: url("/img/alimentacionboton2.png");
+    background-size: cover;
+    background-position: center;
+    border: 4px solid #2E7D32;
+   
+  }
+  
+  .red .boton {
+    background-image: url("/img/ejercicioboton.png");
+    background-size: cover;
+    background-position: center;
+    border: 4px solid #BF360C;
+  }
+  
+  .red .boton:hover {
+    background-image: url("/img/ejercicioboton2.png");
+    background-size: cover;
+    background-position: center;
+    border: 4px solid #BF360C;
+  }
+  
+  .blue .boton {
+    background-image: url("/img/botondescanso.png");
+    background-size: cover;
+    background-position: center;
+    border: 4px solid #0D47A1;
+  }
+  
+  .blue .boton:hover {
+    background-image: url("/img/botondescanso2.png");
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .seccion {
+    padding: 60px;
+    text-align: center;
+    color: white;
+    background-color: #333;
+    margin-bottom: 40px;
+    border-radius: 10px;
+  }
+
+  .zona-juego {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+  }
+  
+  #alimentacion {
+    background-color: #4CAF50;
+  }
+  
+  #ejercicio {
+    background-color: #FF5722;
+  }
+  
+  #descanso {
+    background-color: #2196F3;
+  }

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Descanso</title>
+    <link rel="stylesheet" href="descanso.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <div class="pantalla-inicial">
+      <img src="./img/problemadescanso.png" alt="Bienvenido" class="imagen-inicial"/>
+    </div>
+    <div class="contenedor">
+        <div class="tarjeta" onclick="this.classList.toggle('flipped')">
+          <div class="tarjeta-inner">
+            <div class="tarjeta-front">¡Duerme lo suficiente!</div>
+            <div class="tarjeta-back">Dormir es como cargar tus baterías. Si duermes bien, te sentirás lleno de energía para el día siguiente. ¡A dormir temprano!</div>
+          </div>
+        </div>
+        <div class="tarjeta" onclick="this.classList.toggle('flipped')">
+          <div class="tarjeta-inner">
+            <div class="tarjeta-front">¡Tu cama, tu castillo!</div>
+            <div class="tarjeta-back">Crea un espacio tranquilo y cómodo para dormir. ¡Haz de tu cama el lugar más relajante para descansar como un campeón!</div>
+          </div>
+        </div>
+        <div class="tarjeta" onclick="this.classList.toggle('flipped')">
+          <div class="tarjeta-inner">
+            <div class="tarjeta-front">¡Pantallas fuera antes de dormir!</div>
+            <div class="tarjeta-back">Evita mirar la televisión, tablet o teléfono justo antes de dormir. ¡Deja que tus ojos y tu mente se relajen para un buen descanso!</div>
+          </div>
+        </div>
+        <div class="tarjeta" onclick="this.classList.toggle('flipped')">
+          <div class="tarjeta-inner">
+            <div class="tarjeta-front">¡La rutina mágica de la noche!</div>
+            <div class="tarjeta-back">Leer un libro o escuchar música tranquila puede ayudarte a relajarte. ¡Hazlo siempre antes de ir a la cama y serás un experto en dormir!</div>
+          </div>
+        </div>
+        <div class="tarjeta" onclick="this.classList.toggle('flipped')">
+          <div class="tarjeta-inner">
+            <div class="tarjeta-front">¡Súper siesta!</div>
+            <div class="tarjeta-back">Si tienes sueño en el día, una pequeña siesta de 15-20 minutos puede hacer maravillas. ¡Recarga tus pilas!</div>
+          </div>
+        </div>
+        <div class="tarjeta" onclick="this.classList.toggle('flipped')">
+          <div class="tarjeta-inner">
+            <div class="tarjeta-front">¡A dormir, a soñar!</div>
+            <div class="tarjeta-back">Los niños necesitan entre 9 y 11 horas de sueño para estar fuertes y felices. ¡Haz de la hora de dormir tu momento más importante del día!</div>
+          </div>
+        </div>
+      </div>
+      <div class="barra-con-imagenes">
+        <img src="./img/descansomalo.png" alt="Imagen Izquierda" class="imagen-izquierda">
+        <div class="barra-progreso">
+          <div class="relleno-progreso"></div>
+        </div>
+        <img src="./img/descansolobo.png" alt="Imagen Derecha" class="imagen-derecha">
+      </div>
+
+  <div class="victoria" id="victoria">
+    <div class="contenido-victoria">
+      <img src="./img/descansovictoria.png" alt="Victoria" class="imagen-victoria"/>
+      <button onclick="document.getElementById('victoria').style.display='none'">Cerrar</button>
+    </div>
+  </div>
+  <button id="btn-atras" style="display: none;" onclick="window.history.back()">⬅️ Ir atrás</button>
+  <script>
+    const tarjetas = document.querySelectorAll(".tarjeta");
+    const barra = document.querySelector(".barra-progreso");
+    const relleno = document.querySelector(".relleno-progreso");
+    const victoria = document.getElementById("victoria");
+
+    let completadas = 0;
+
+    tarjetas.forEach((tarjeta) => {
+      tarjeta.addEventListener("click", () => {
+        if (!tarjeta.classList.contains("marcada")) {
+          tarjeta.classList.add("marcada");
+          completadas++;
+
+          let porcentaje = (completadas / 6) * 100;
+          relleno.style.width = porcentaje + "%";
+
+          barra.classList.add("vibrar");
+          setTimeout(() => barra.classList.remove("vibrar"), 800);
+
+          if (completadas === 6) {
+            setTimeout(() => {
+              victoria.style.display = "flex";
+              document.getElementById("btn-atras").style.display = "block";
+            }, 500);
+          }
+        }
+      });
+    });
+  </script>      
+</body>
+</html>

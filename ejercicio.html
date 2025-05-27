@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Ejercicio</title>
+    <link rel="stylesheet" href="ejercicio.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <div class="pantalla-inicial">
+      <img src="./img/problemaejercicio.png" alt="Bienvenido" class="imagen-inicial"/>
+    </div>
+    <div class="contenedor">
+        <div class="tarjeta" onclick="this.classList.toggle('flipped')">
+          <div class="tarjeta-inner">
+            <div class="tarjeta-front">¡Muévete como un superhéroe!</div>
+            <div class="tarjeta-back">Sal a jugar, bailar o hacer deportes. ¡El ejercicio es súper divertido y te hace sentir increíble!</div>
+          </div>
+        </div>
+        <div class="tarjeta" onclick="this.classList.toggle('flipped')">
+          <div class="tarjeta-inner">
+            <div class="tarjeta-front">¡Diviértete con tus amigos!</div>
+            <div class="tarjeta-back">Hacer ejercicio con otros es más divertido. Puedes correr, saltar o jugar un partido de fútbol. ¡Es mucho más divertido con tus amigos!</div>
+          </div>
+        </div>
+        <div class="tarjeta" onclick="this.classList.toggle('flipped')">
+          <div class="tarjeta-inner">
+            <div class="tarjeta-front">¡Prepara tu cuerpo!</div>
+            <div class="tarjeta-back">Antes de hacer ejercicio, haz algunos estiramientos. ¡Como un calentamiento de superhéroe para evitar lesiones!</div>
+          </div>
+        </div>
+        <div class="tarjeta" onclick="this.classList.toggle('flipped')">
+          <div class="tarjeta-inner">
+            <div class="tarjeta-front">¡Escucha a tu cuerpo!</div>
+            <div class="tarjeta-back">Si te sientes cansado o dolorido, es importante descansar. ¡Escucha a tu cuerpo y toma un descanso cuando lo necesites!</div>
+          </div>
+        </div>
+        <div class="tarjeta" onclick="this.classList.toggle('flipped')">
+          <div class="tarjeta-inner">
+            <div class="tarjeta-front">¡Encuentra tu deporte favorito!</div>
+            <div class="tarjeta-back">Hay muchas actividades para elegir: fútbol, baloncesto, natación, gimnasia... ¡Encuentra lo que más te guste hacer!</div>
+          </div>
+        </div>
+        <div class="tarjeta" onclick="this.classList.toggle('flipped')">
+          <div class="tarjeta-inner">
+            <div class="tarjeta-front">¡Hazlo como un juego!</div>
+            <div class="tarjeta-back">El ejercicio no tiene que ser aburrido. ¡Juega mientras te mueves! Así nunca dejarás de moverte.</div>
+          </div>
+        </div>
+      </div>
+      <div class="barra-con-imagenes">
+        <img src="./img/ejerciciomalo.png" alt="Imagen Izquierda" class="imagen-izquierda">
+        <div class="barra-progreso">
+          <div class="relleno-progreso"></div>
+        </div>
+        <img src="./img/ejerciciolobo.png" alt="Imagen Derecha" class="imagen-derecha">
+      </div>
+
+  <div class="victoria" id="victoria">
+    <div class="contenido-victoria">
+      <img src="./img/ejerciciovictoria.png" alt="Victoria" class="imagen-victoria"/>
+      <button onclick="document.getElementById('victoria').style.display='none'">Cerrar</button>
+    </div>
+  </div>
+  <button id="btn-atras" style="display: none;" onclick="window.history.back()">⬅️ Ir atrás</button>
+  <script>
+    const tarjetas = document.querySelectorAll(".tarjeta");
+    const barra = document.querySelector(".barra-progreso");
+    const relleno = document.querySelector(".relleno-progreso");
+    const victoria = document.getElementById("victoria");
+
+    let completadas = 0;
+
+    tarjetas.forEach((tarjeta) => {
+      tarjeta.addEventListener("click", () => {
+        if (!tarjeta.classList.contains("marcada")) {
+          tarjeta.classList.add("marcada");
+          completadas++;
+
+          let porcentaje = (completadas / 6) * 100;
+          relleno.style.width = porcentaje + "%";
+
+          barra.classList.add("vibrar");
+          setTimeout(() => barra.classList.remove("vibrar"), 800);
+
+          if (completadas === 6) {
+            setTimeout(() => {
+              victoria.style.display = "flex";
+              document.getElementById("btn-atras").style.display = "block";
+            }, 500);
+          }
+        }
+      });
+    });
+  </script>      
+</body>
+</html>

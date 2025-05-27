@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portada</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div class="portada">
+        <div class="contenido-central">
+          <h1 class="texto-secundario">El malvado quiere sabotear tu bienestar</h1>
+          <h2 class="texto-principal">¡AYÚDANOS A DETENERLE!</h2>
+          <a href="/mainpage.html" id="botonVamos" class="boton">VAMOS</a>
+        </div>
+      
+        <div class="personajes">
+          <img src="/img/heroes.png" alt="Personaje bueno">
+          <img src="/img/lobo1.png" alt="El malvado">
+        </div>
+        <div class="nubes">
+          <img src="/img/nube1.png" class="nube nube-izquierda" id="nubeIzquierda">
+          <img src="/img/nube2.png" class="nube nube-derecha" id="nubeDerecha">
+          </div>
+      </div>
+
+<script>
+  const boton = document.getElementById('botonVamos');
+  const personajeDerecha = document.querySelector('.personajes img:last-child');
+
+  boton.addEventListener('click', (e) => {
+    e.preventDefault();
+
+
+    personajeDerecha.src = "/img/lobo2.png";
+    setTimeout(() => {
+      window.location.href = 'mainpage.html';
+    }, 1000);
+  });
+
+  const nubeIzquierda = document.getElementById("nubeIzquierda");
+  const nubeDerecha = document.getElementById("nubeDerecha");
+
+  setTimeout(() => {
+    nubeIzquierda.style.animation = "entrarDesdeIzquierda 2s ease-out forwards";
+  }, 6000);
+
+  setTimeout(() => {
+    nubeDerecha.style.animation = "entrarDesdeDerecha 2s ease-out forwards";
+  }, 6500);
+
+  setTimeout(() => {
+    nubeIzquierda.style.animation = "flotar 4s ease-in-out infinite";
+    nubeIzquierda.style.opacity = "1"; 
+  }, 8200);
+
+  setTimeout(() => {
+    nubeDerecha.style.animation = "flotar 4s ease-in-out infinite";
+    nubeDerecha.style.opacity = "1";
+  }, 8700);
+</script>
+</body>
+</html>

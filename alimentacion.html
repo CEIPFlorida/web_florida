@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Alimentación</title>
+    <link rel="stylesheet" href="alimentacion.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <div class="pantalla-inicial">
+      <img src="./img/problemaalimentacion.png" alt="Bienvenido" class="imagen-inicial"/>
+    </div>
+    <div class="contenedor">
+        <div class="tarjeta" onclick="this.classList.toggle('flipped')">
+          <div class="tarjeta-inner">
+            <div class="tarjeta-front">¡Nunca saltes el desayuno!</div>
+            <div class="tarjeta-back">Es como la gasolina para tu cuerpo. Desayuna rico para empezar el día con superpoderes.</div>
+          </div>
+        </div>
+        <div class="tarjeta" onclick="this.classList.toggle('flipped')">
+          <div class="tarjeta-inner">
+            <div class="tarjeta-front">Come colores en tu plato</div>
+            <div class="tarjeta-back">Frutas y verduras son como héroes de la comida. ¡Mientras más colores, mejor!</div>
+          </div>
+        </div>
+        <div class="tarjeta" onclick="this.classList.toggle('flipped')">
+          <div class="tarjeta-inner">
+            <div class="tarjeta-front">Cuidado con los dulces traviesos</div>
+            <div class="tarjeta-back">Cuidado con los dulces traviesos</div>
+          </div>
+        </div>
+        <div class="tarjeta" onclick="this.classList.toggle('flipped')">
+          <div class="tarjeta-inner">
+            <div class="tarjeta-front">¡El agua es tu mejor amiga!</div>
+            <div class="tarjeta-back">Refréscate durante el día. ¡Te mantiene fresco, fuerte y feliz!</div>
+          </div>
+        </div>
+        <div class="tarjeta" onclick="this.classList.toggle('flipped')">
+          <div class="tarjeta-inner">
+            <div class="tarjeta-front">Meriendas que te dan energía</div>
+            <div class="tarjeta-back">Elige snacks como frutas, yogur o un sandwich saludable. ¡Nada de comida chatarra!</div>
+          </div>
+        </div>
+        <div class="tarjeta" onclick="this.classList.toggle('flipped')">
+          <div class="tarjeta-inner">
+            <div class="tarjeta-front">¡Conviértete en chef!</div>
+            <div class="tarjeta-back">Ayuda a preparar la comida en casa. ¡Es divertido y aprenderás a comer mejor!</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="barra-con-imagenes">
+        <img src="./img/alimentacionmalo.png" alt="Imagen Izquierda" class="imagen-izquierda">
+        <div class="barra-progreso">
+          <div class="relleno-progreso"></div>
+        </div>
+        <img src="./img/alimentacionlobo.png" alt="Imagen Derecha" class="imagen-derecha">
+      </div>
+
+      <div class="victoria" id="victoria">
+        <div class="contenido-victoria">
+          <img src="./img/alimentacionvictoria.png" alt="Victoria" class="imagen-victoria"/>
+          <button onclick="document.getElementById('victoria').style.display='none'">Cerrar</button>
+        </div>
+      </div>
+      <button id="btn-atras" style="display: none;" onclick="window.history.back()">⬅️ Ir atrás</button>
+
+      <script>
+        const tarjetas = document.querySelectorAll(".tarjeta");
+        const barra = document.querySelector(".barra-progreso");
+        const relleno = document.querySelector(".relleno-progreso");
+        const victoria = document.getElementById("victoria");
+
+        let completadas = 0;
+
+        tarjetas.forEach((tarjeta) => {
+          tarjeta.addEventListener("click", () => {
+            if (!tarjeta.classList.contains("marcada")) {
+              tarjeta.classList.add("marcada");
+              completadas++;
+
+              let porcentaje = (completadas / 6) * 100;
+              relleno.style.width = porcentaje + "%";
+
+              barra.classList.add("vibrar");
+              setTimeout(() => barra.classList.remove("vibrar"), 800);
+
+              if (completadas === 6) {
+                setTimeout(() => {
+                  victoria.style.display = "flex";
+                  document.getElementById("btn-atras").style.display = "block";
+                }, 500);
+              }
+            }
+          });
+        });
+      </script>      
+</body>
+</html>
