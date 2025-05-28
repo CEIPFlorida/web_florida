@@ -174,14 +174,14 @@
   }
   
   .green .boton {
-    background-image: url("./img/alimentacionboton.png");
+    background-image: url("img/alimentacionboton.png");
     background-size: cover;
     background-position: center;
     border: 4px solid #2E7D32;
   }
   
   .green .boton:hover {
-    background-image: url("./img/alimentacionboton2.png");
+    background-image: url("img/alimentacionboton2.png");
     background-size: cover;
     background-position: center;
     border: 4px solid #2E7D32;
@@ -189,28 +189,28 @@
   }
   
   .red .boton {
-    background-image: url("./img/ejercicioboton.png");
+    background-image: url("img/ejercicioboton.png");
     background-size: cover;
     background-position: center;
     border: 4px solid #BF360C;
   }
   
   .red .boton:hover {
-    background-image: url("./img/ejercicioboton2.png");
+    background-image: url("img/ejercicioboton2.png");
     background-size: cover;
     background-position: center;
     border: 4px solid #BF360C;
   }
   
   .blue .boton {
-    background-image: url("./img/botondescanso.png");
+    background-image: url("img/botondescanso.png");
     background-size: cover;
     background-position: center;
     border: 4px solid #0D47A1;
   }
   
   .blue .boton:hover {
-    background-image: url("./img/botondescanso2.png");
+    background-image: url("img/botondescanso2.png");
     background-size: cover;
     background-position: center;
   }
