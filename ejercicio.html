@@ -72,25 +72,34 @@
     let completadas = 0;
 
     tarjetas.forEach((tarjeta) => {
-      tarjeta.addEventListener("click", () => {
-        if (!tarjeta.classList.contains("marcada")) {
-          tarjeta.classList.add("marcada");
-          completadas++;
+  tarjeta.addEventListener("click", () => {
+    if (!tarjeta.classList.contains("marcada")) {
+      tarjeta.classList.add("marcada");
+      completadas++;
 
-          let porcentaje = (completadas / 6) * 100;
-          relleno.style.width = porcentaje + "%";
+      let porcentaje = (completadas / 6) * 100;
+      relleno.style.width = porcentaje + "%";
 
-          barra.classList.add("vibrar");
-          setTimeout(() => barra.classList.remove("vibrar"), 800);
+      barra.classList.add("vibrar");
+      setTimeout(() => barra.classList.remove("vibrar"), 800);
 
-          if (completadas === 6) {
-            setTimeout(() => {
-              victoria.style.display = "flex";
-              document.getElementById("btn-atras").style.display = "block";
-            }, 500);
-          }
-        }
-      });
+      if (completadas === 6) {
+        setTimeout(() => {
+          victoria.style.display = "flex";
+          document.getElementById("btn-atras").style.display = "block";
+
+          document.body.style.backgroundImage = "url('img/fondoejercicio.png')";
+          document.body.style.backgroundSize = "cover";
+          document.body.style.backgroundPosition = "center";
+          
+          const izquierda = document.querySelector(".imagen-izquierda");
+          const derecha = document.querySelector(".imagen-derecha");
+          if (izquierda) izquierda.style.display = "none";
+          if (derecha) derecha.style.display = "none";
+        }, 500);
+      }
+    }
+  });
     });
   </script>      
 </body>
